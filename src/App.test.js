@@ -1,5 +1,5 @@
 // Radio Streaming Station Search and Selection Application
-import { render, screen } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import App from "./App"
 
@@ -35,6 +35,14 @@ describe('2 - We should be able to search for radio stations by name', () => {
         const buttontext = "Search";
         const button = screen.getByText(buttontext);
         expect(button).toBeInTheDocument();
+    })
+    test('2c - When we click on the search button, the search function should be executed only once', () => {
+        const functionMock = jest.fn();
+        const buttontext = "Search";
+        const button = screen.getByText(buttontext);
+        button.addEventListener("click", functionMock);
+        fireEvent.click(button);
+        expect(functionMock).toHaveBeenCalledTimes(1);
     })
 })
 
