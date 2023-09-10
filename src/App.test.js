@@ -1,6 +1,14 @@
 // Radio Streaming Station Search and Selection Application
+import { render } from "@testing-library/react"
+import App from "./App"
 
 // 0 - The application must render correctly
+describe('0 - The application must render correctly', () => {
+    test('0 - The application must render correctly', () => {
+        const r = render(<App />);
+        expect(r).toBeDefined();
+    })
+})
 
 // 1 - The name of the application should be displayed somewhere => "OpenRadioCamp"
 
