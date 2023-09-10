@@ -31,6 +31,11 @@ describe('2 - We should be able to search for radio stations by name', () => {
         const input = screen.getByPlaceholderText(placeholdertext);
         expect(input).toBeInTheDocument();
     })
+    test('2b - The application must have a search button => Text "Search"', () => {
+        const buttontext = "Search";
+        const button = screen.getByText(buttontext);
+        expect(button).toBeInTheDocument();
+    })
 })
 
 // 3 - List of radio stations
