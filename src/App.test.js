@@ -1,13 +1,14 @@
 // Radio Streaming Station Search and Selection Application
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import App from "./App"
+
+beforeEach(() => render(<App />));
 
 // 0 - The application must render correctly
 describe('0 - The application must render correctly', () => {
     test('0 - The application must render correctly', () => {
-        const r = render(<App />);
-        expect(r).toBeDefined();
+        expect(screen).toBeDefined();
     })
 })
 
@@ -15,8 +16,7 @@ describe('0 - The application must render correctly', () => {
 describe('1 - The name of the application should be displayed somewhere', () => {
     test('1 - The name of the application should be displayed somewhere', () => {
         const appName = "OpenRadioCamp";
-        const r = render(<App />);
-        const el = r.getByText(appName);
+        const el = screen.getByText(appName);
         expect(el).toBeInTheDocument();
     })
 })
