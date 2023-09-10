@@ -1,5 +1,6 @@
 // Radio Streaming Station Search and Selection Application
 import { render } from "@testing-library/react"
+import "@testing-library/jest-dom"
 import App from "./App"
 
 // 0 - The application must render correctly
@@ -11,6 +12,14 @@ describe('0 - The application must render correctly', () => {
 })
 
 // 1 - The name of the application should be displayed somewhere => "OpenRadioCamp"
+describe('1 - The name of the application should be displayed somewhere', () => {
+    test('1 - The name of the application should be displayed somewhere', () => {
+        const appName = "OpenRadioCamp";
+        const r = render(<App />);
+        const el = r.getByText(appName);
+        expect(el).toBeInTheDocument();
+    })
+})
 
 // 2 - We should be able to search for radio stations by name
 // 2a - The application must have an input field with the placeholder => "Enter the radio station's name"
