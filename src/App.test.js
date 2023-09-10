@@ -56,4 +56,9 @@ describe('3 - List of radio stations', () => {
         const list = screen.getByLabelText('list-stations');
         expect(list).toBeInTheDocument();
     })
+    test('3b - The list must initialize as empty', () => {
+        const list = screen.getByLabelText('list-stations');
+        const childrenCount = list.childElementCount;
+        expect(childrenCount).toBe(0);
+    })
 })
