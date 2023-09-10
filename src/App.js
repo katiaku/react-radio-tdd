@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState } from 'react'
 import './App.css'
+import { IoPlay } from 'react-icons/io5'
 
 function App() {
   const[search, setSearch] = useState("");
@@ -11,6 +12,11 @@ function App() {
     axios.get(url)
       .then(r => setList(r.data))
       .catch(e => console.error(e))
+  }
+
+  const playRadio = (radio) => {
+    const audio = new Audio(radio.url)
+    audio.play();
   }
 
   return (
@@ -25,7 +31,7 @@ function App() {
       <button onClick={ doSearch }>Search</button>
       {list.length > 0 && <div aria-label='lenght-not-null'></div>}
       <section aria-label="list-stations">
-        {list.map((station, i) => <div key={i}>{station.name}</div>)}
+        {list.map((station, i) => <div key={i}>{station.name} <IoPlay style={{cursor: 'pointer'}} onClick={playRadio} /></div>)}
       </section>
     </div>
   );
