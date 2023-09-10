@@ -25,6 +25,13 @@ describe('1 - The name of the application should be displayed somewhere', () => 
 // 2a - The application must have an input field with the placeholder => "Enter the radio station's name"
 // 2b - The application must have a search button => Text "Search"
 // 2c - When we click on the search button, the search function should be executed only once
+describe('2 - We should be able to search for radio stations by name', () => {
+    test('2a - The application must have an input field with the placeholder => "Enter the radio station\'s name"', () => {
+        const placeholdertext = "Enter the radio station's name";
+        const input = screen.getByPlaceholderText(placeholdertext);
+        expect(input).toBeInTheDocument();
+    })
+})
 
 // 3 - List of radio stations
 // 3a - There must be a list of radio stations
