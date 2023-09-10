@@ -51,3 +51,9 @@ describe('2 - We should be able to search for radio stations by name', () => {
 // 3b - The list must initialize as empty
 // 3c - When a valid search is performed, the list should display at least one result
 // 3d - When an invalid search is performed (no match found), the list should display a message "No radio stations found for this search"
+describe('3 - List of radio stations', () => {
+    test('3a - There must be a list of radio stations', () => {
+        const list = screen.getByLabelText('list-stations');
+        expect(list).toBeInTheDocument();
+    })
+})
