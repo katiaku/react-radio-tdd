@@ -7,6 +7,9 @@ function App() {
   const[search, setSearch] = useState("");
   const[list, setList] = useState([]);
 
+  /**
+   * doSearch function to search for a radio station
+   */
   const doSearch = () => {
     const url = `https://fr1.api.radio-browser.info/json/stations/byname/${search}`;
     axios.get(url)
@@ -14,6 +17,10 @@ function App() {
       .catch(e => console.error(e))
   }
 
+  /**
+   * playRadio function to play audio
+   * @param {object} radio
+   */
   const playRadio = (radio) => {
     const audio = new Audio(radio.url)
     audio.play();
